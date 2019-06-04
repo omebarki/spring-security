@@ -1,0 +1,15 @@
+server:
+  port: 8083
+security:
+  oauth2:
+    client:
+      clientId: web.api.client
+      clientSecret: password
+      grant-type: client_credentials
+      accessTokenUri: http://localhost:8080/oauth/token
+
+
+
+
+
+
