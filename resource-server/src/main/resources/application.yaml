@@ -1,0 +1,16 @@
+server:
+  port: 8081
+security:
+  oauth2:
+    client:
+      clientId: resource.client
+      clientSecret: password
+    resource:
+      user-info-uri: http://localhost:8080//oauth/userinfo
+      token-info-uri: http://localhost:8080/oauth/check_token
+
+
+
+
+
+

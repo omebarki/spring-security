@@ -5,4 +5,4 @@ curl --request POST \
   --header 'Content-Type: application/x-www-form-urlencoded'
 
 #resource access
-curl -s  http://localhost:8080/static/index.html --header 'Authorization: bearer 4018dd6a-9a56-4fe7-8e57-bb03336d1b8a'
+curl -s  http://localhost:8081/static/index.html -H 'Authorization: bearer b47d29bd-6ddc-4692-ab71-6db9039a1999'

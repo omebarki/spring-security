@@ -17,6 +17,18 @@ insert into oauth_client_details values('web.api.client',
                                  null,
                                  'password',
                                  'scope',
+                                 'client_credentials,refresh_token',
+                                 'http://localhost/api',
+                                 'READ,WRITE',
+                                 3600,
+                                 3600,
+                                 '{"infos":"test"}',
+                                 true);
+
+insert into oauth_client_details values('resource.client',
+                                 null,
+                                 'password',
+                                 'scope',
                                  'client_credentials',
                                  'http://localhost/api',
                                  'READ,WRITE',
@@ -35,4 +47,10 @@ CREATE TABLE oauth_access_token (
     client_id VARCHAR(256),
     authentication bytea,
     refresh_token VARCHAR(256)
+);
+
+create table oauth_refresh_token (
+  token_id VARCHAR(256),
+  token LONGVARBINARY,
+  authentication LONGVARBINARY
 );
