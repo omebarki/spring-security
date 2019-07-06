@@ -16,6 +16,10 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+
+        <docker.remote.registry>tadartiw/</docker.remote.registry>
+        <docker.image.from>adoptopenjdk/openjdk8:latest</docker.image.from>
+        <docker.image.name>${docker.remote.registry}${project.artifactId}:${project.version}</docker.image.name>
     </properties>
 
     <modules>
@@ -34,4 +38,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>0.30.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

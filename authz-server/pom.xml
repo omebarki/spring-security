@@ -56,7 +56,36 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.image.name}</name>
+                            <build>
+                                <from>${docker.image.from}</from>
+                                <entryPoint>
+                                    <exec>
+                                        <arg>java</arg>
+                                        <arg>-Xmx1G</arg>
+                                        <arg>-cp</arg>
+                                        <arg>/app/${project.build.finalName}.${project.packaging}</arg>
+                                        <arg>omar.mebarki.springsecurity.authzserver.AuthzServerApplication</arg>
+                                    </exec>
+                                </entryPoint>
+                                <assembly>
+                                    <mode>dir</mode>
+                                    <targetDir>/app</targetDir>
+                                    <descriptor>assembly.xml</descriptor>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 
 </project>
