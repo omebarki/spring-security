@@ -69,9 +69,8 @@
                                     <exec>
                                         <arg>java</arg>
                                         <arg>-Xmx1G</arg>
-                                        <arg>-cp</arg>
-                                        <arg>/app/${project.build.finalName}.${project.packaging}</arg>
-                                        <arg>omar.mebarki.springsecurity.authzserver.AuthzServerApplication</arg>
+                                        <arg>-jar</arg>
+                                        <arg>/app/lib/${project.build.finalName}.${project.packaging}</arg>
                                     </exec>
                                 </entryPoint>
                                 <assembly>

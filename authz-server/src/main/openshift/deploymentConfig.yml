@@ -1,0 +1,29 @@
+kind: "DeploymentConfig"
+apiVersion: "v1"
+metadata:
+  name: "authz-server"
+spec:
+  template:
+    metadata:
+      labels:
+        name: "authz-server"
+    spec:
+      containers:
+        - name: "authz-server"
+          image: "docker.io/tadartiw/authz-server"
+  replicas: 1
+  triggers:
+    - type: "ConfigChange"
+    - type: "ImageChange"
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - "authz-server"
+        from:
+          kind: "ImageStreamTag"
+          name: "authz-server:1.0.0-SNAPSHOT"
+  strategy:
+    type: "Rolling"
+  paused: false
+  revisionHistoryLimit: 2
+  minReadySeconds: 0 
