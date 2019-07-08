@@ -6,8 +6,8 @@ security:
       clientId: resource.client
       clientSecret: password
     resource:
-      user-info-uri: http://localhost:8080//oauth/userinfo
-      token-info-uri: http://localhost:8080/oauth/check_token
+      user-info-uri: http://authz-server:8080/oauth/userinfo
+      token-info-uri: http://authz-server:8080/oauth/check_token
 
 
 

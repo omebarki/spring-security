@@ -18,7 +18,7 @@ public class ClientCallController {
 
     @RequestMapping(path = "/call")
     public String call() {
-        String forObject = oAuth2RestTemplate.getForObject("http://localhost:8081/api/hello?name=Omar" + (++counter), String.class);
+        String forObject = oAuth2RestTemplate.getForObject("http://resource-server:8081/api/hello?name=Omar" + (++counter), String.class);
         return forObject;
     }
 }

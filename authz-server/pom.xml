@@ -71,6 +71,7 @@
                                         <arg>-Xmx1G</arg>
                                         <arg>-jar</arg>
                                         <arg>/app/lib/${project.build.finalName}.${project.packaging}</arg>
+                                        <arg>--debug</arg>
                                     </exec>
                                 </entryPoint>
                                 <assembly>
@@ -79,6 +80,11 @@
                                     <descriptor>assembly.xml</descriptor>
                                 </assembly>
                             </build>
+                            <run>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                            </run>
                         </image>
                     </images>
                 </configuration>

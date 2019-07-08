@@ -47,6 +47,10 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
@@ -61,6 +65,7 @@
                                         <arg>-Xmx1G</arg>
                                         <arg>-jar</arg>
                                         <arg>/app/lib/${project.build.finalName}.${project.packaging}</arg>
+                                        <arg>--debug</arg>
                                     </exec>
                                 </entryPoint>
                                 <assembly>
@@ -69,6 +74,11 @@
                                     <descriptor>assembly.xml</descriptor>
                                 </assembly>
                             </build>
+                            <run>
+                                <ports>
+                                    <port>8083</port>
+                                </ports>
+                            </run>
                         </image>
                     </images>
                 </configuration>

@@ -6,7 +6,7 @@ security:
       clientId: web.api.client
       clientSecret: password
       grant-type: client_credentials
-      accessTokenUri: http://localhost:8080/oauth/token
+      accessTokenUri: http://authz-server:8080/oauth/token
 
 
 
