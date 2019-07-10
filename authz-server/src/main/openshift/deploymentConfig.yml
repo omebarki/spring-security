@@ -15,6 +15,17 @@ spec:
       containers:
         - name: "@project.artifactId@"
           image: "docker.io/tadartiw/@project.artifactId@"
+          volumeMounts:
+            - mountPath: /app/config
+              name: @project.artifactId@-config-volume
+      volumes:
+        - configMap:
+            defaultMode: 420
+            name: @project.artifactId@-config
+            items:
+              - key: application.yaml
+                path: application.properties
+          name: @project.artifactId@-config-volume
   replicas: 1
   triggers:
     - type: "ConfigChange"
