@@ -1,4 +1,7 @@
 # Spring-security OpenShift
+# Openshift config
+    sudo vi /etc/containers/registries.conf
+    add '172.30.0.0/16' in insecure section
 # Openshift docker secret
 
 1. oc create secret generic dockerhub \
